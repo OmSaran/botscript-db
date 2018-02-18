@@ -1,0 +1,15 @@
+{
+    "username": "user1",
+    "bot": "pizzaBot",
+    "collections": ["orders", "transactions"]
+},
+{
+    "username": "user1",
+    "bot": "deliveryBot",
+    "collections": ["bike", "delivery_boy"]
+},
+{
+    "username": "user2",
+    "bot": "slack_bot",
+    "collections": ["online", "offline"]
+}

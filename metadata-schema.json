@@ -1,0 +1,13 @@
+{
+    "type": "object",
+    "bot": {
+        "type": "string",
+        "description": "Bot name"
+    },
+    "collections": {
+        "type": "array",
+        "items": {
+            "type": "string"
+        }
+    }
+}
