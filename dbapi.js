@@ -4,6 +4,7 @@ var db = require('./Template/databaseUtils.js');
 var async = require('async');
 
 PORT = 27015
+SEP = '-'
 
 app.get('/api/db', function(req, res) {
     let collectionName = 'metadata';
@@ -41,11 +42,11 @@ app.get('/api/db/:botName', function(req, res) {
     collections
     .then(function(coll) {
         async.map(coll[0].collections, function(element, cb) {
-            var collName = userId + '-' + botName + '-' + element;
+            var collName = userId + SEP + botName + SEP + element;
             var columns = db.getAllColumns(collName, {});
             columns.then(function(results) {
                 // For every collection return an array of columns
-                collName = userId + '-' + botName + '-' + element;
+                collName = userId + SEP + botName + SEP + element;
                 cb(null, { collection: collName, columns: results });
             });
             columns.catch(function(err) {
@@ -68,8 +69,8 @@ app.get('/api/db/:botName/:collection', function(req, res) {
     // Mock
     var userId = 'user1'
     //
-    let collectionName = userId + '-' + req.params.botName +
-        '-' + req.params.collection;
+    let collectionName = userId + SEP + req.params.botName +
+        SEP + req.params.collection;
     var results = db.getAllData(collectionName)
     .then(function(results) {
         res.json(results).status(200);
