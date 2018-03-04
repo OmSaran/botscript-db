@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var db = require('./Template/databaseUtils.js');
+var db = require('./databaseUtils.js');
 var async = require('async');
 
 PORT = 27015
